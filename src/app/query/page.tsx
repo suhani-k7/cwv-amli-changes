@@ -175,7 +175,7 @@ export default function QueryPage() {
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-lg flex flex-col gap-6">
         <div className="flex flex-col gap-2">
           <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">Companies</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 bg-slate-50 dark:bg-slate-850 p-4 border border-slate-200 dark:border-slate-800 rounded-xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 bg-slate-50 dark:bg-slate-800 p-4 border border-slate-200 dark:border-slate-800 rounded-xl">
             {companies.map(c => (
               <label key={c._id} className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-355 cursor-pointer select-none">
                 <input

@@ -45,7 +45,7 @@ function getMetricClass(key: MetricKey, val: number | null): string {
   if (val === null) return '';
   const t = thresholds[key];
   if (val <= t.good) return 'bg-emerald-50/40 dark:bg-emerald-950/20 text-emerald-700 dark:text-emerald-450 font-medium';
-  if (val <= t.ni)   return 'bg-amber-50/40 dark:bg-amber-950/20 text-amber-750 dark:text-amber-400 font-medium';
+  if (val <= t.ni)   return 'bg-amber-50/40 dark:bg-amber-950/20 text-amber-700 dark:text-amber-450 font-medium';
   return 'bg-rose-50/40 dark:bg-rose-950/20 text-rose-700 dark:text-rose-450 font-medium';
 }
 
@@ -490,7 +490,7 @@ export default function Dashboard() {
                 
                 <div className={`flex flex-wrap items-center gap-3 pb-3 mb-4 border-b border-slate-200 dark:border-slate-800 transition-all duration-200 ${isMobileFiltersOpen ? 'fixed top-[70px] left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 rounded-b-2xl p-6 flex-col items-stretch shadow-2xl z-50 opacity-100 translate-y-0' : 'fixed pointer-events-none opacity-0 translate-y-[-20px] md:static md:flex md:flex-row md:p-0 md:shadow-none md:opacity-100 md:translate-y-0 md:pointer-events-auto'}`}>
                   <div className="flex justify-between items-center mb-4 md:hidden">
-                    <h3 className="margin-0 font-bold text-lg text-slate-850 dark:text-slate-100">Filters</h3>
+                    <h3 className="margin-0 font-bold text-lg text-slate-800 dark:text-slate-100">Filters</h3>
                     <button className="text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300 text-2xl font-semibold" onClick={() => setIsMobileFiltersOpen(false)}>×</button>
                   </div>
 
@@ -508,7 +508,7 @@ export default function Dashboard() {
                     {(['all', 'mobile', 'desktop'] as const).map(d => (
                       <button
                         key={d}
-                        className={`px-3.5 py-1 rounded-full text-xs font-medium border transition duration-200 capitalize ${deviceFilter === d ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 border-blue-200 dark:border-blue-800' : 'bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-350 border-slate-200 dark:border-slate-700'}`}
+                        className={`px-3.5 py-1 rounded-full text-xs font-medium border transition duration-200 capitalize ${deviceFilter === d ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 border-blue-200 dark:border-blue-800' : 'bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700'}`}
                         onClick={() => {setDeviceFilter(d); setIsMobileFiltersOpen(false);}}
                       >
                         {d}
@@ -521,7 +521,7 @@ export default function Dashboard() {
                     {(['all', 'pass', 'fail'] as StatusFilter[]).map(f => (
                       <button
                         key={f}
-                        className={`px-3.5 py-1 rounded-full text-xs font-medium border transition duration-200 ${statusFilter === f ? (f === 'pass' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 border-emerald-250 dark:border-emerald-800' : f === 'fail' ? 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400 border-rose-250 dark:border-rose-800' : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 border-blue-200 dark:border-blue-800') : 'bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-350 border-slate-200 dark:border-slate-700'}`}
+                        className={`px-3.5 py-1 rounded-full text-xs font-medium border transition duration-200 ${statusFilter === f ? (f === 'pass' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 border-emerald-300 dark:border-emerald-800' : f === 'fail' ? 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400 border-rose-300 dark:border-rose-800' : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 border-blue-200 dark:border-blue-800') : 'bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700'}`}
                         onClick={() => setStatusFilter(f)}
                       >
                         {f === 'all' ? 'All' : f === 'pass' ? 'Passed' : 'Failed'}
@@ -534,7 +534,7 @@ export default function Dashboard() {
                     {(['all', 'origin', 'traffic'] as SourceFilter[]).map(f => (
                       <button
                         key={f}
-                        className={`px-3.5 py-1 rounded-full text-xs font-medium border transition duration-200 ${sourceFilter === f ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 border-blue-200 dark:border-blue-800' : 'bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-350 border-slate-200 dark:border-slate-700'}`}
+                        className={`px-3.5 py-1 rounded-full text-xs font-medium border transition duration-200 ${sourceFilter === f ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 border-blue-200 dark:border-blue-800' : 'bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700'}`}
                         onClick={() => setSourceFilter(f)}
                       >
                         {f === 'all' ? 'All' : f === 'origin' ? 'Origin' : 'Traffic'}
@@ -560,7 +560,7 @@ export default function Dashboard() {
                         <th rowSpan={4} className="sticky left-0 z-30 border border-slate-200 dark:border-slate-800/80 p-3 text-center text-slate-500 dark:text-slate-400 font-semibold bg-slate-50 dark:bg-slate-900 w-12">#</th>
                         <th
                           rowSpan={4}
-                          className="sticky left-12 z-30 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 p-3 text-slate-850 dark:text-slate-200 font-bold whitespace-nowrap min-w-[200px] text-left cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-800 select-none"
+                          className="sticky left-12 z-30 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 p-3 text-slate-800 dark:text-slate-200 font-bold whitespace-nowrap min-w-[200px] text-left cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-800 select-none"
                           onClick={() => handleSort('url')}
                         >
                           URL{sortIndicator('url')}
@@ -646,19 +646,19 @@ export default function Dashboard() {
                               const r = dataMap[url]?.[date]?.[device];
                               if (!r) {
                                 return METRIC_LABELS.map((_, mi) => (
-                                  <td key={`${date}-${device}-empty-${mi}`} className="border border-slate-200 dark:border-slate-800/80 p-3 text-center text-slate-350 dark:text-slate-650 bg-slate-50/10 dark:bg-slate-900/10">—</td>
+                                  <td key={`${date}-${device}-empty-${mi}`} className="border border-slate-200 dark:border-slate-800/80 p-3 text-center text-slate-400 dark:text-slate-500 bg-slate-50/10 dark:bg-slate-900/10">—</td>
                                 ));
                               }
                               const statusClass =
-                                r.status === 'Pass' ? 'bg-emerald-150/45 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-450 border-emerald-200 dark:border-emerald-900/40'
-                                : r.status === 'Fail' ? 'bg-rose-150/45 dark:bg-rose-950/40 text-rose-700 dark:text-rose-450 border-rose-200 dark:border-rose-900/40'
+                                r.status === 'Pass' ? 'bg-emerald-100/50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-900/40'
+                                : r.status === 'Fail' ? 'bg-rose-100/50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-400 border-rose-200 dark:border-rose-900/40'
                                 : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700';
                               return METRIC_LABELS.map(label => {
                                 if (label === 'Status') {
                                   return (
                                     <td key={`${date}-${device}-status`} className="border border-slate-200 dark:border-slate-800/80 p-3 text-center font-normal whitespace-nowrap">
                                       <span className={`px-2 py-0.5 rounded text-xs font-semibold border ${statusClass}`}>{r.status}</span>
-                                      {r.isOriginFallback && <span className="ml-1.5 inline-block px-1.5 py-0.5 rounded text-[10px] font-bold bg-purple-105 dark:bg-purple-950/30 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-900/30">Origin</span>}
+                                      {r.isOriginFallback && <span className="ml-1.5 inline-block px-1.5 py-0.5 rounded text-[10px] font-bold bg-purple-100 dark:bg-purple-950/30 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-900/30">Origin</span>}
                                     </td>
                                   );
                                 }
@@ -690,7 +690,7 @@ export default function Dashboard() {
           style={{ top: contextMenu.y, left: contextMenu.x }}
         >
           <button
-            className="w-full text-left px-4 py-2 text-sm text-slate-750 dark:text-slate-200 hover:bg-slate-105 dark:hover:bg-slate-700 transition duration-150"
+            className="w-full text-left px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition duration-150"
             onClick={() => {
               window.open(contextMenu.url, '_blank', 'noopener');
               setContextMenu(null);
@@ -699,7 +699,7 @@ export default function Dashboard() {
             Open URL
           </button>
           <button
-            className="w-full text-left px-4 py-2 text-sm text-slate-750 dark:text-slate-200 hover:bg-slate-105 dark:hover:bg-slate-700 transition duration-150"
+            className="w-full text-left px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition duration-150"
             onClick={() => {
               triggerFetch([contextMenu.url], true);
               setContextMenu(null);
@@ -708,7 +708,7 @@ export default function Dashboard() {
             Fetch CWV for this URL
           </button>
           <button
-            className="w-full text-left px-4 py-2 text-sm text-slate-750 dark:text-slate-200 hover:bg-slate-105 dark:hover:bg-slate-700 transition duration-150"
+            className="w-full text-left px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition duration-150"
             onClick={() => {
               navigator.clipboard.writeText(contextMenu.url);
               setContextMenu(null);

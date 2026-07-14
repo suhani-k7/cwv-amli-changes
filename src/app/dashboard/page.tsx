@@ -222,14 +222,14 @@ export default function Dashboard() {
           <button className="px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-650 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold text-sm rounded-lg shadow-md hover:shadow-lg transition duration-200 transform hover:-translate-y-0.5 active:translate-y-0" onClick={exportCSV}>
             Export CSV
           </button>
-          <button className="px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-850 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-semibold text-sm rounded-lg shadow-sm hover:shadow transition duration-200" onClick={fetchData}>
+          <button className="px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-semibold text-sm rounded-lg shadow-sm hover:shadow transition duration-200" onClick={fetchData}>
             Refresh
           </button>
         </div>
       </header>
       <>
         {recentFailedInfo.length > 0 && (
-          <div className="mt-2 bg-rose-50/20 dark:bg-rose-950/10 border border-rose-250 dark:border-rose-900/50 rounded-xl p-5 shadow-sm">
+          <div className="mt-2 bg-rose-50/20 dark:bg-rose-950/10 border border-rose-300 dark:border-rose-900/50 rounded-xl p-5 shadow-sm">
             <h2 className="text-lg font-bold text-rose-800 dark:text-rose-400 mb-3">Recently Failed URLs</h2>
             <ul className="list-none p-0 m-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {recentFailedInfo.map(item => (
@@ -248,13 +248,13 @@ export default function Dashboard() {
           </div>
         ) : companies.length === 0 ? (
           <div className="text-center py-20 text-slate-500 dark:text-slate-400">
-            <h2 className="text-xl font-bold text-slate-850 dark:text-slate-200 mb-2">No Data Found</h2>
+            <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2">No Data Found</h2>
             <p>Ensure MongoDB is connected and URLs are seeded.</p>
           </div>
         ) : (
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-lg overflow-x-auto">
             <div className="overflow-x-auto border border-slate-200 dark:border-slate-800 rounded-xl max-h-[75vh] overflow-y-auto">
-              <table className="w-full border-collapse text-left text-sm text-slate-600 dark:text-slate-350">
+              <table className="w-full border-collapse text-left text-sm text-slate-600 dark:text-slate-400">
                 <thead className="sticky top-0 z-20 bg-slate-50 dark:bg-slate-950">
                   <tr>
                     <th rowSpan={3} className="sticky left-0 z-30 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-3 text-slate-800 dark:text-slate-200 font-bold whitespace-nowrap min-w-[160px] text-left">Company</th>
