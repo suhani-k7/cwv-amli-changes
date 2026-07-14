@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      # Mapping only the container port (3000) without specifying a host port
+      # instructs Docker to bind the service to a random ephemeral port on the host.
+      # This prevents conflicts with ports 3000, 3001, or any other specific ports.
+      - "3000"
+    env_file:
+      - .env
+    restart: always
